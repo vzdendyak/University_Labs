@@ -5,18 +5,13 @@ namespace AOS_LabsHelper
 {
     public class Lab5Calculator
     {
-        private const double t_obs = 0.1;
-        private const double lambda_def = 520;
-        public const int n = 53;
-        private const double Pwx = 0.829;
-        private const double Nx = 0.58;
-        private double Pw = 0.307;
+        private const double t_obs = 0.2;
+        private const double lambda_def = 200;
+        public const int n = 42;
+        private const double Pwx = 0.650;
+        private const double Nx = 0.47;
+        private double Pw = 0.199;
 
-        //public const double t_obs = 0.2;
-        //public const double lambda = 280;
-        //public const int n = 58;
-
-        // n opt = 58!!!!
         private double u = 1 / t_obs;
 
         public void Calculate()
