@@ -78,12 +78,12 @@ namespace AOS_LabsHelper
         public Dictionary<double, double> Calculate_2_Lambda()
         {
             var calc_lambda = lambda_def;
-            double reduceStep = 0.5;
+            double reduceStep = 0.05;
             double Pw = Get_P_w(lambda: calc_lambda);
             double Pw_increase = Get_P_w(lambda: calc_lambda + reduceStep);
             double Pw_reduce = Get_P_w(lambda: calc_lambda - reduceStep);
             var values_dictionary = new Dictionary<double, double>();
-            int steps = 50;
+            int steps = 500;
             if (Pw_increase < Pw)
             {
                 calc_lambda = lambda_def - 5;
@@ -91,7 +91,7 @@ namespace AOS_LabsHelper
                 for (int i = 0; i < steps; i++, calc_lambda += reduceStep)
                 {
                     var value = Get_P_w(lambda: calc_lambda);
-                    if (calc_lambda == lambda_def || Math.Round(value, 3) == this.Pw)
+                    if (Math.Round(calc_lambda, 3) == Math.Round(lambda_def, 3) || Math.Round(value, 3) == Math.Round(this.Pw, 3))
                     {
                         log($"lambda = {calc_lambda}\nPw={value}", ConsoleColor.Red);
                         Console.Beep();
@@ -110,7 +110,7 @@ namespace AOS_LabsHelper
                 for (int i = 0; i < steps; i++, calc_lambda -= reduceStep)
                 {
                     var value = Get_P_w(lambda: calc_lambda);
-                    if (calc_lambda == lambda_def || Math.Round(value, 3) == this.Pw)
+                    if (Math.Round(calc_lambda, 3) == Math.Round(lambda_def, 3) || Math.Round(value, 3) == Math.Round(this.Pw, 3))
                     {
                         log($"lambda = {calc_lambda}\nPw={value}", ConsoleColor.Red);
                         Console.Beep();
@@ -146,6 +146,7 @@ namespace AOS_LabsHelper
                     if (Math.Round(calc_t_obs, 2) == t_obs || Math.Round(value, 3) == this.Pw)
                     {
                         log($"t_obs = {calc_t_obs}\nPw={value}", ConsoleColor.Red);
+                        Console.Beep();
                     }
                     else
                     {
@@ -164,6 +165,7 @@ namespace AOS_LabsHelper
                     if (Math.Round(calc_t_obs, 1) == t_obs || Math.Round(value, 3) == this.Pw)
                     {
                         log($"t_obs = {calc_t_obs}\nPw={value}", ConsoleColor.Red);
+                        Console.Beep();
                     }
                     else
                     {
