@@ -36,11 +36,12 @@ namespace AOS_LabsHelper
             double Pw_increase = Get_P_w(n: calc_n + 1);
             double Pw_reduce = Get_P_w(n: calc_n - 1);
             var values_dictionary = new Dictionary<int, double>();
-            calc_n = n;
+            int steps = 20;
             if (Pw_increase < Pw)
             {
+                calc_n = n - 5;
                 log("Increase better!", ConsoleColor.Green);
-                for (int i = 0; i < 20; i++, calc_n++)
+                for (int i = 0; i < steps; i++, calc_n++)
                 {
                     var value = Get_P_w(n: calc_n);
                     if (calc_n == n || Math.Round(value, 3) == this.Pw)
@@ -56,8 +57,9 @@ namespace AOS_LabsHelper
             }
             else if (Pw_reduce < Pw)
             {
+                calc_n = n + 5;
                 log("Reduce better!", ConsoleColor.Red);
-                for (int i = 0; i < 20; i++, calc_n--)
+                for (int i = 0; i < steps; i++, calc_n--)
                 {
                     var value = Get_P_w(n: calc_n);
                     if (calc_n == n || Math.Round(value, 3) == this.Pw)
@@ -86,10 +88,10 @@ namespace AOS_LabsHelper
             double Pw_increase = Get_P_w(lambda: calc_lambda + reduceStep);
             double Pw_reduce = Get_P_w(lambda: calc_lambda - reduceStep);
             var values_dictionary = new Dictionary<double, double>();
-            int steps = 40;
-            calc_lambda = lambda_def;
+            int steps = 50;
             if (Pw_increase < Pw)
             {
+                calc_lambda = lambda_def - 5;
                 log("Increase better!", ConsoleColor.Green);
                 for (int i = 0; i < steps; i++, calc_lambda += reduceStep)
                 {
@@ -108,6 +110,7 @@ namespace AOS_LabsHelper
             }
             else if (Pw_reduce < Pw)
             {
+                calc_lambda = lambda_def + 5;
                 log("Reduce better!", ConsoleColor.Red);
                 for (int i = 0; i < steps; i++, calc_lambda -= reduceStep)
                 {
@@ -137,15 +140,15 @@ namespace AOS_LabsHelper
             double Pw_increase = Get_P_w(t_obs: calc_t_obs + 0.1);
             double Pw_reduce = Get_P_w(t_obs: calc_t_obs - 0.1);
             var values_dictionary = new Dictionary<double, double>();
-            int steps = 20;
-            calc_t_obs = t_obs;
+            int steps = 30;
             if (Pw_increase < Pw)
             {
+                calc_t_obs = t_obs - 0.05;
                 log("Increase better!", ConsoleColor.Green);
                 for (int i = 0; i < steps; i++, calc_t_obs += 0.01)
                 {
                     var value = Get_P_w(t_obs: calc_t_obs);
-                    if (calc_t_obs == t_obs || Math.Round(value, 3) == this.Pw)
+                    if (Math.Round(calc_t_obs, 2) == t_obs || Math.Round(value, 3) == this.Pw)
                     {
                         log($"t_obs = {calc_t_obs}\nPw={value}", ConsoleColor.Red);
                     }
@@ -158,11 +161,12 @@ namespace AOS_LabsHelper
             }
             else if (Pw_reduce < Pw)
             {
+                calc_t_obs = t_obs + 0.05;
                 log("Reduce better!", ConsoleColor.Red);
                 for (int i = 0; i < steps; i++, calc_t_obs -= 0.01)
                 {
                     var value = Get_P_w(t_obs: calc_t_obs);
-                    if (calc_t_obs == t_obs)
+                    if (Math.Round(calc_t_obs, 1) == t_obs || Math.Round(value, 3) == this.Pw)
                     {
                         log($"t_obs = {calc_t_obs}\nPw={value}", ConsoleColor.Red);
                     }
