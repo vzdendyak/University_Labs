@@ -16,14 +16,22 @@ namespace GraphsTheory_Labs
                 Console.WriteLine("\n\n\n---------\n[1] - Пошук в глибину\n[2] - Пошук в ширину\n[3] - Вихiд");
                 var res = Console.ReadLine();
                 int.TryParse(res, out int i);
+                if (i == 3)
+                {
+                    loop = false;
+                    break;
+                }
+                Console.WriteLine("Задайте вершину початку 0..7");
+                res = Console.ReadLine();
+                int.TryParse(res, out int index);
                 switch (i)
                 {
                     case 1:
-                        CalculateDFS(1);
+                        CalculateDFS(index, 1);
                         break;
 
                     case 2:
-                        CalculateBFS(1);
+                        CalculateBFS(index, 1);
                         break;
 
                     case 3:
@@ -33,12 +41,12 @@ namespace GraphsTheory_Labs
             }
         }
 
-        public static void CalculateDFS(int logs = 0)
+        public static void CalculateDFS(int index, int logs = 0)
         {
             initialize();
             path = new Stack<Vershyna>();
-            Show(0);
-            DFS(0, logs);
+            Show(index);
+            DFS(index, logs);
         }
 
         private static void DFS(int index, int logs = 0)
@@ -63,13 +71,13 @@ namespace GraphsTheory_Labs
         }
 
         /// <param name="logs">If you want to see logs, make 1</param>
-        public static void CalculateBFS(int logs = 0)
+        public static void CalculateBFS(int index, int logs = 0)
         {
             initialize();
             var queue = new Queue<Vershyna>();
-            queue.Enqueue(arr[0]);
-            arr[0].visited = true;
-            Show(0);
+            queue.Enqueue(arr[index]);
+            arr[index].visited = true;
+            Show(index);
             while (queue.Count > 0)
             {
                 var element = queue.Dequeue();
@@ -130,14 +138,14 @@ namespace GraphsTheory_Labs
         {
             arr = new List<Vershyna>
             {
-                new Vershyna(new List<int> { 1, 2}, 0), // 0
-                new Vershyna(new List<int> { 0, 3, 4}, 1), // 1
-                new Vershyna(new List<int> { 0, 5, 6}, 2), // 2
-                new Vershyna(new List<int> { 1 }, 3), // 3
-                new Vershyna(new List<int> { 1, 7 }, 4),   // 4
-                new Vershyna(new List<int> { 2 }, 5),     // 5
-                new Vershyna(new List<int> { 2 }, 6),     // 6
-                new Vershyna(new List<int> { 4 }, 7)     // 7
+                new Vershyna(new List<int> { 1, 3}, 0), // 0
+                new Vershyna(new List<int> { 0, 5}, 1), // 1
+                new Vershyna(new List<int> { 5, 4}, 2), // 2
+                new Vershyna(new List<int> { 0, 5 , 7 }, 3), // 3
+                new Vershyna(new List<int> { 2 }, 4),   // 4
+                new Vershyna(new List<int> { 1,2,3,6 }, 5),     // 5
+                new Vershyna(new List<int> { 5 }, 6),     // 6
+                new Vershyna(new List<int> { 3 }, 7)     // 7
             };
         }
     }
