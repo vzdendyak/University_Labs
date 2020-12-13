@@ -15,7 +15,7 @@ namespace AOS_LabsHelper
             bool loop = true;
             while (loop)
             {
-                Console.WriteLine("Choose part:\n1 - 1.1 (N)\n2 - 1.2 (lambda)\n3 - 1.3 (t_obs)\n0 - Exit");
+                Console.WriteLine("Choose part:\n1 - 1.1 (N)\n2 - 1.2 (lambda)\n3 - 1.3 (t_obs)\n4-2.1\n0 - Exit");
                 var ans = Console.ReadLine();
                 switch (ans)
                 {
@@ -29,6 +29,10 @@ namespace AOS_LabsHelper
 
                     case "3":
                         l5.Calculate_3_t_obs();
+                        break;
+
+                    case "4":
+                        l5.Calculate_21_K();
                         break;
 
                     case "0":

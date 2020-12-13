@@ -60,5 +60,14 @@ namespace University_Labs
             }
             l5.Start_p3(this.chart1);
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            foreach (var series in chart1.Series)
+            {
+                series.Points.Clear();
+            }
+            l5.Start_p4(this.chart1);
+        }
     }
 }

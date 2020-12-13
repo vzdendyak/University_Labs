@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace AOS_LabsHelper
 {
-    public class Lab5Calculator
+    public partial class Lab5Calculator
     {
         private const double t_obs = 0.1;
         private const double lambda_def = 520;
@@ -39,7 +39,7 @@ namespace AOS_LabsHelper
             int steps = 20;
             if (Pw_increase < Pw)
             {
-                calc_n = n - 5;
+                calc_n = n - 2;
                 log("Increase better!", ConsoleColor.Green);
                 for (int i = 0; i < steps; i++, calc_n++)
                 {
@@ -57,7 +57,7 @@ namespace AOS_LabsHelper
             }
             else if (Pw_reduce < Pw)
             {
-                calc_n = n + 5;
+                calc_n = n + 2;
                 log("Reduce better!", ConsoleColor.Red);
                 for (int i = 0; i < steps; i++, calc_n--)
                 {
@@ -143,7 +143,7 @@ namespace AOS_LabsHelper
             int steps = 30;
             if (Pw_increase < Pw)
             {
-                calc_t_obs = t_obs - 0.05;
+                calc_t_obs = t_obs - 0.02;
                 log("Increase better!", ConsoleColor.Green);
                 for (int i = 0; i < steps; i++, calc_t_obs += 0.01)
                 {
@@ -161,7 +161,7 @@ namespace AOS_LabsHelper
             }
             else if (Pw_reduce < Pw)
             {
-                calc_t_obs = t_obs + 0.05;
+                calc_t_obs = t_obs + 0.02;
                 log("Reduce better!", ConsoleColor.Red);
                 for (int i = 0; i < steps; i++, calc_t_obs -= 0.01)
                 {

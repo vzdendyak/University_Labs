@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "University_Labs", "Universi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AOS_LabsHelper", "AOS_LabsHelper\AOS_LabsHelper.csproj", "{DE555B6A-B89B-4F6E-93C6-12F1C268A92A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphsTheory_Labs", "GraphsTheory_Labs\GraphsTheory_Labs.csproj", "{0B4A6E99-1A14-47EE-AACA-A8B0424487E4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{DE555B6A-B89B-4F6E-93C6-12F1C268A92A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DE555B6A-B89B-4F6E-93C6-12F1C268A92A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DE555B6A-B89B-4F6E-93C6-12F1C268A92A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0B4A6E99-1A14-47EE-AACA-A8B0424487E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0B4A6E99-1A14-47EE-AACA-A8B0424487E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0B4A6E99-1A14-47EE-AACA-A8B0424487E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0B4A6E99-1A14-47EE-AACA-A8B0424487E4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

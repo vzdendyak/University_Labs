@@ -51,5 +51,19 @@ namespace University_Labs
                 }
             }
         }
+
+        internal void Start_p4(Chart chart)
+        {
+            var l5c = new Lab5Calculator();
+            var values = l5c.Calculate_21_K();
+            foreach (var item in values)
+            {
+                if (!Double.IsNaN(item.Value))
+                {
+                    chart.Series[0].Points.AddXY(item.Key, item.Value);
+                    //chart.Series[1].Points.AddXY(l5c.Get_t_obs(), item.Value);
+                }
+            }
+        }
     }
 }

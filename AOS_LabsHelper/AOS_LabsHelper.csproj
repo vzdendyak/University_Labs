@@ -74,6 +74,7 @@
   <ItemGroup>
     <Compile Include="Helper.cs" />
     <Compile Include="Lab5Calculator.cs" />
+    <Compile Include="Lab6_part.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
